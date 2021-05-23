@@ -52,6 +52,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillHolder> {
         holder.addressTv.setText("Địa chỉ giao hàng: "+  bill.getAddress());
         holder.dateTv.setText("Ngày mua hàng: " + createDate);
         holder.setData(listProductInCarts);
+        holder.totalAmountTv.setText("TỔNG TIỀN: " + String.format("%1$,.0f", bill.getTotalProductAmount()) + " VND");
     }
 
     @Override
