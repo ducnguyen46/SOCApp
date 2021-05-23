@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <TableLayout
+        android:padding="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow>
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_marginRight="15dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/login_button" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="left">
+                <TextView
+                    android:id="@+id/nameProductTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="28sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Bàn là hơi nước"/>
+
+                <TextView
+                    android:id="@+id/priceProductTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="100 000VND"/>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+</androidx.cardview.widget.CardView>

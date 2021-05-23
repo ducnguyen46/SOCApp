@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/headerView"
+            app:layout_constraintHorizontal_bias="0.4"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/login_header"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_left_arrow"
+                android:background="@drawable/login_button"
+                android:elevation="10dp" />
+
+            <TextView
+                android:id="@+id/titlePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/backBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:textSize="40sp"
+                android:gravity="center_horizontal"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:text="Let's register!"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/nameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="0.2"
+            android:layout_marginHorizontal="40dp"
+            android:padding="12dp"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="12dp"
+            android:background="@drawable/edittext_custom"
+            app:layout_constraintTop_toBottomOf="@id/headerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/registerBtn"
+            android:textSize="18sp"
+            android:textColor="#111401"
+            android:hint="Tên"
+            android:elevation="5dp">
+            <requestFocus/>
+        </EditText>
+
+        <EditText
+            android:id="@+id/usernameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="20dp"
+            android:padding="12dp"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="12dp"
+            android:background="@drawable/edittext_custom"
+            app:layout_constraintTop_toBottomOf="@id/nameEt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/passwordEt"
+            android:textSize="18sp"
+            android:textColor="#111401"
+            android:hint="Tên đăng nhập"
+            android:elevation="5dp">
+        </EditText>
+
+        <EditText
+            android:id="@+id/passwordEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:padding="12dp"
+            android:background="@drawable/edittext_custom"
+            android:drawableStart="@drawable/ic_lock_open"
+            android:drawablePadding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/usernameEt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="18sp"
+            android:textColor="#111401"
+            android:hint="Mật khẩu"
+            android:elevation="5dp">
+        </EditText>
+
+        <EditText
+            android:id="@+id/phonedEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:padding="12dp"
+            android:background="@drawable/edittext_custom"
+            android:drawableStart="@drawable/ic_smartphone"
+            android:drawablePadding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/passwordEt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="18sp"
+            android:textColor="#111401"
+            android:hint="Số điện thoại"
+            android:elevation="5dp">
+        </EditText>
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/login_button"
+            android:backgroundTintMode="add"
+            android:text="Đăng ký"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/passwordEt"
+            app:layout_constraintStart_toStartOf="@id/passwordEt"
+            app:layout_constraintTop_toBottomOf="@id/phonedEt"
+            android:elevation="10dp"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/orTxt"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/registerBtn"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:textSize="14dp"-->
+<!--            android:text="hoặc đăng ký bằng"/>-->
+<!--        <View-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/registerBtn"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/orTxt"-->
+<!--            app:layout_constraintHorizontal_bias="0.9"-->
+<!--            android:layout_marginVertical="20dp"-->
+<!--            android:background="#9C9C9C" />-->
+
+<!--        <View-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginVertical="20dp"-->
+<!--            android:background="#9C9C9C"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.1"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/orTxt"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/registerBtn" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/fbBtn"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/googleBtn"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/orTxt"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginVertical="40dp"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:src="@drawable/ic_facebook"-->
+<!--            android:background="@drawable/circle_button"-->
+<!--            android:elevation="5dp"/>-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/googleBtn"-->
+<!--            app:layout_constraintStart_toEndOf="@id/fbBtn"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/appleBtn"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/orTxt"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_marginVertical="40dp"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:src="@drawable/ic_google"-->
+<!--            android:background="@drawable/circle_button"-->
+<!--            android:elevation="5dp"/>-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/appleBtn"-->
+<!--            app:layout_constraintStart_toEndOf="@id/googleBtn"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/orTxt"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_marginVertical="40dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:src="@drawable/ic_apple"-->
+<!--            android:background="@drawable/circle_button"-->
+<!--            android:elevation="5dp"/>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
