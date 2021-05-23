@@ -13,18 +13,24 @@ public interface ProductCartRestService {
 
 
     @POST("/productInCart")
-    Call<Void> addProductToCart(@Header("Authorization") String token, @Body ProductAddCart productAddCart);
+    Call<Void> addProductToCart(
+            @Header("Authorization") String token,
+            @Body ProductAddCart productAddCart);
 
 
     @GET("/productInCart")
-    Call<List<ProductInCart>> getAllProductInCart(@Header("Authorization") String token);
+    Call<List<ProductInCart>> getAllProductInCart(
+            @Header("Authorization") String token);
 
     //change quantity of product in cart
-    // id product
     @PUT("/productInCart")
-    Call<Void> updateProductInCartQuantity(@Header("Authorization") String token, @Body ProductAddCart productAddCart);
+    Call<Void> updateProductInCartQuantity(
+            @Header("Authorization") String token,
+            @Body ProductAddCart productAddCart);
 
     // id product
     @DELETE("/productInCart/{id}")
-    Call<Void> deleteProductInCart(@Header("Authorization") String token, @Path("id") long id);
+    Call<Void> deleteProductInCart(
+            @Header("Authorization") String token,
+            @Path("id") long id);
 }

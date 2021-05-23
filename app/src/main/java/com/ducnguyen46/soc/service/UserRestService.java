@@ -21,7 +21,8 @@ public interface UserRestService {
 
     //update user password
     @PUT("/user")
-    Call<Void> updateUserPassword(@Header("Authorization") String token, @Body ChangePassword password);
+    Call<Void> updateUserPassword(@Header("Authorization") String token,
+                                  @Body ChangePassword password);
 
     @POST("/register")
     @Headers("No-Authentication: true")

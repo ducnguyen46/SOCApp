@@ -14,9 +14,12 @@ import retrofit2.http.POST;
 public interface BillRestService {
     //tiến hành thanh toán
     @POST("/bill")
-    Call<Void> createBill(@Header("Authorization") String token, @Body Bill address);
+    Call<Void> createBill(
+            @Header("Authorization") String token,
+            @Body Bill address);
 
     @GET("/bills")
-    Call<List<Bill>> getAllBill(@Header("Authorization") String token);
+    Call<List<Bill>> getAllBill(
+            @Header("Authorization") String token);
 
 }

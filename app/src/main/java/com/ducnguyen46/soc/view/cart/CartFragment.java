@@ -95,10 +95,10 @@ public class CartFragment extends Fragment {
                 }
                 productCartAdapter.setData(listProductInCart);
                 if(listProductInCart.size() == 0){
-                    thongbao.setEnabled(true);
+                    thongbao.setVisibility(View.VISIBLE);
                     buyBtn.setEnabled(false);
                 } else {
-                    thongbao.setEnabled(false);
+                    thongbao.setVisibility(View.INVISIBLE);
                     buyBtn.setEnabled(true);
                 }
             }
