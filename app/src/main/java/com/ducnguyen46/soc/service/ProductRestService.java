@@ -19,5 +19,8 @@ public interface ProductRestService {
 
     @GET("/product/{id}")
     Call<Product> getProductById(@Header("Authorization") String token, @Path("id") long id);
+
+    @GET("/productFindByName/{name}")
+    Call<List<Product>> findProductByName(@Header("Authorization") String token, @Path("name") String name);
     
 }
