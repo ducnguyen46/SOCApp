@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.ducnguyen46.soc.MainActivity;
 import com.ducnguyen46.soc.R;
 import com.ducnguyen46.soc.constant.Constant;
 import com.ducnguyen46.soc.model.User;
@@ -30,11 +32,21 @@ public class PersonalFragment extends Fragment {
     private User user;
     private UserRestService userRestService;
     private String token;
+    private ActionBar actionBar;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        actionBar.setTitle("Trang cá nhân");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_personal, container, false);
+
+        actionBar = ((MainActivity)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Trang cá nhân");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
         token = sharedPreferences.getString(Constant.TOKEN_USER, null);
 

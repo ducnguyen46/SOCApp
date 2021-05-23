@@ -3,6 +3,7 @@ package com.ducnguyen46.soc.view.home;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,20 +37,24 @@ public class HomeFragment extends Fragment {
     private ArrayList<Product> products;
     private ProductAdapter productAdapter;
     private ProductRestService productRestService;
+    private ActionBar actionBar;
 
     public HomeFragment() { }
 
     @Override
     public void onResume() {
         super.onResume();
+        actionBar.setTitle("SOC");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        productRestService = ApiRestUtils.getProductService();
+        actionBar = ((MainActivity)getActivity()).getSupportActionBar();
+        actionBar.setTitle("SOC");
 
+        productRestService = ApiRestUtils.getProductService();
 
         rcProduct = view.findViewById(R.id.rcProduct);
         productAdapter = new ProductAdapter(getContext());

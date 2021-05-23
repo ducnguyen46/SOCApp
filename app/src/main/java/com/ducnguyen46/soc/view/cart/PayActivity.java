@@ -1,5 +1,6 @@
 package com.ducnguyen46.soc.view.cart;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,9 +52,19 @@ public class PayActivity extends AppCompatActivity {
     private User user;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Thanh toán");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         init();
     }
 

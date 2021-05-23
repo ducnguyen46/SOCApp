@@ -1,5 +1,6 @@
 package com.ducnguyen46.soc.view;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -38,9 +39,20 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ProductCartRestService productCartService;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+        //
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Thông tin chi tiết");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         productCartService = ApiRestUtils.getProductCartService();
 
         imgProduct = findViewById(R.id.imgProductDetail);

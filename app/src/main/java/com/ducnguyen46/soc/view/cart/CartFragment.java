@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.ducnguyen46.soc.MainActivity;
 import com.ducnguyen46.soc.R;
 import com.ducnguyen46.soc.adapter.ProductCartAdapter;
 import com.ducnguyen46.soc.constant.Constant;
@@ -30,30 +33,30 @@ import retrofit2.Response;
 
 public class CartFragment extends Fragment {
 
+    private TextView thongbao;
     private RecyclerView rcProduct;
     private ProductCartAdapter productCartAdapter;
     private Button buyBtn;
     private ProductCartRestService productCartRestService;
     private ArrayList<ProductInCart> listProductInCart;
     private String token;
+    private ActionBar actionBar;
 
     public CartFragment() { }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public void onResume() {
         super.onResume();
         loadProductInCart();
+        actionBar.setTitle("Giỏ hàng");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
+        actionBar = ((MainActivity)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Giỏ hàng");
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
         token = sharedPreferences.getString(Constant.TOKEN_USER, null);
@@ -67,6 +70,7 @@ public class CartFragment extends Fragment {
 
         rcProduct.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
         rcProduct.setAdapter(productCartAdapter);
+        thongbao = view.findViewById(R.id.thongbao);
 
         buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +79,7 @@ public class CartFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
 
         return view;
     }
@@ -89,6 +94,13 @@ public class CartFragment extends Fragment {
                     listProductInCart = new ArrayList<>();
                 }
                 productCartAdapter.setData(listProductInCart);
+                if(listProductInCart.size() == 0){
+                    thongbao.setEnabled(true);
+                    buyBtn.setEnabled(false);
+                } else {
+                    thongbao.setEnabled(false);
+                    buyBtn.setEnabled(true);
+                }
             }
 
             @Override

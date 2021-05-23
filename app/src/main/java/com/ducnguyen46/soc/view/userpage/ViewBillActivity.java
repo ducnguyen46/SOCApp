@@ -1,5 +1,6 @@
 package com.ducnguyen46.soc.view.userpage;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,9 +31,25 @@ public class ViewBillActivity extends AppCompatActivity {
     String token;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
+
+//    @Override
+//    public boolean onNavigateUp() {
+//        finish();
+//        return true;
+//    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bill);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Xem hóa đơn");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         token = sharedPreferences.getString(Constant.TOKEN_USER, null);
 

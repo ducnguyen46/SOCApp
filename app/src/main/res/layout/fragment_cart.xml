@@ -28,6 +28,17 @@
             android:textColor="@color/white"
             android:background="@drawable/login_button"/>
 
+        <TextView
+            android:id="@+id/thongbao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Không có món hàng nào trong giỏ!"
+            android:textSize="16sp"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:enabled="false"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

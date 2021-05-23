@@ -1,5 +1,6 @@
 package com.ducnguyen46.soc.view.userpage;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
@@ -27,9 +28,19 @@ public class PasswordActivity extends AppCompatActivity {
     private String token;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Thay đổi mật khẩu");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         token = sharedPreferences.getString(Constant.TOKEN_USER, null);
         userRestService = ApiRestUtils.getUserService();
